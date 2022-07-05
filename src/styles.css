@@ -1,3 +1,41 @@
-.app-brder {
+/*General*/
+body {
   font-family: "Joan", serif;
+  line-height: 25px;
+}
+
+.app-border {
+  padding: 25px;
+  border: 1px solid red;
+  border-radius: 10px;
+  margin-top: 25px;
+  margin-bottom: 2px;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sorce-code-link {
+  margin-left: 10px;
+  font-size: 12px;
+  color: gray;
+}
+
+.link {
+  text-decoration: none;
+}
+
+/*Header*/
+.title {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 25px;
 }
