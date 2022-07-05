@@ -4,14 +4,6 @@ body {
   line-height: 25px;
 }
 
-.app-border {
-  padding: 25px;
-  border: 1px solid red;
-  border-radius: 10px;
-  margin-top: 25px;
-  margin-bottom: 2px;
-}
-
 ul {
   padding: 0;
   margin: 0;
@@ -21,6 +13,14 @@ li {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.app-border {
+  padding: 25px;
+  border: 1px solid red;
+  border-radius: 10px;
+  margin-top: 25px;
+  margin-bottom: 2px;
 }
 
 .sorce-code-link {
@@ -38,4 +38,52 @@ li {
   text-align: center;
   font-size: 25px;
   margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.main-weather-data {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  line-height: 30px;
+}
+
+.main-city-name {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.main-date,
+.main-description {
+  font-size: 20px;
+}
+
+/*Main*/
+
+.main-img {
+  font-size: 50px;
+  margin-top: 15px;
+  margin-right: 15px;
+  margin-left: 15px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.main-current-temp {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.main-max-temp,
+.main-min-temp,
+.other-description {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.cel,
+.far,
+.kmh,
+.mph {
+  text-decoration: none;
 }

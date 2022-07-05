@@ -31,64 +31,80 @@
   <body>
     <!--Container div for bootstrap-->
     <div class="container">
-      <div class="app-border">
-        <!--Title-->
-        <h1 class="title">Weather Check</h1>
-        <!--City Form-->
-        <div class="row">
-          <div class="col-3">
-            <form>
-              <input
-                type="text"
-                placeholder="Enter city name..."
-                autofocus="on"
-              />
-            </form>
-          </div>
-          <div class="col-1">
-            <button>Confirm</button>
-          </div>
-          <div class="col-2">
-            <button>Current City</button>
-          </div>
-        </div>
-        <!--Weather description-->
-        <ul>
-          <li>New York, USA</li>
-          <li>00:00, 01.01.2000</li>
-          <li>Misty</li>
-        </ul>
-        <main>
+      <div class="app-border-link">
+        <div class="app-border">
+          <!--Title-->
+          <h1 class="title">Weather Check</h1>
+          <!--City Form-->
           <div class="row">
+            <div class="col-3">
+              <form>
+                <input
+                  type="text"
+                  placeholder="Enter city name..."
+                  autofocus="on"
+                />
+              </form>
+            </div>
             <div class="col-1">
-              <i class="fa-solid fa-smog"></i>
+              <button>Confirm</button>
             </div>
-            <div class="col-3">
-              <ul>
-                <li>20°C | °F</li>
-                <li>Max temp: 20°C | °F</li>
-                <li>Min temp: 20°C | °F</li>
-              </ul>
-            </div>
-            <div class="col-3">
-              <ul>
-                <li>Humidity 0%</li>
-                <li>Pressure 0hPa</li>
-                <li>Wind speed 0km/h</li>
-                <li>Wind deg 0°</li>
-              </ul>
+            <div class="col-2">
+              <button>Current City</button>
             </div>
           </div>
-        </main>
+          <!--Weather description-->
+          <div class="main-weather-data">
+            <ul>
+              <li class="main-city-name">New York, USA</li>
+              <li class="main-date">00:00, 01.01.2000</li>
+              <li class="main-description">Misty</li>
+            </ul>
+          </div>
+          <main>
+            <div class="row">
+              <div class="col-1 main-img">
+                <i class="fa-solid fa-smog"></i>
+              </div>
+              <div class="col-3 main-weather-temp">
+                <ul>
+                  <li class="main-current-temp">
+                    20<sup><a href="#" class="cel">°C</a></sup> |
+                    <sup><a href="#" class="far">°F</a></sup>
+                  </li>
+                  <li class="main-max-temp">
+                    Max temp: 20<sup><a href="#" class="cel">°C</a></sup> |
+                    <sup><a href="#" class="far">°F</a></sup>
+                  </li>
+                  <li class="main-min-temp">
+                    Min temp: 20<sup><a href="#" class="cel">°C</a></sup> |
+                    <sup><a href="#" class="far">°F</a></sup>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-4 other-description">
+                <ul>
+                  <li>Humidity: 0%</li>
+                  <li>Pressure: 0hPa</li>
+                  <li>
+                    Wind speed: 0<a href="#" class="kmh">km/h</a> |
+                    <a href="#" class="mph">mph</a>
+                  </li>
+                  <li>Wind deg: 0°</li>
+                </ul>
+              </div>
+            </div>
+          </main>
+        </div>
+        <footer class="sorce-code-link">
+          <a
+            class="link"
+            href="https://github.com/Malva86/Vanilla-weather-app"
+            target="_blank"
+            >Open-sorce code</a
+          >, by Malwina Flis
+        </footer>
       </div>
-      <footer class="sorce-code-link">
-        <a
-          class="link"
-          href="https://github.com/Malva86/Vanilla-weather-app"
-          target="_blank"
-          >Open-sorce code</a
-        >, by Malwina Flis
-      </footer>
     </div>
     <script src="src/app.js"></script>
   </body>
