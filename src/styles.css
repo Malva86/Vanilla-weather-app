@@ -41,12 +41,14 @@ li {
   margin-top: 25px;
   margin-bottom: 2px;
   background-color: var(--001);
+  color: var(--005);
+  font-weight: 500;
 }
 
 .sorce-code-link {
   margin-left: 10px;
   font-size: 12px;
-  color: gray;
+  color: var(--004);
 }
 
 .link {

@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Axios-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!--Icons-->
     <script
       src="https://kit.fontawesome.com/e0e0d61b4f.js"
@@ -43,22 +45,33 @@
                   type="text"
                   placeholder="Enter city name..."
                   autofocus="on"
+                  id="input-form"
                 />
               </form>
             </div>
+            <!--Buttons-->
             <div class="col-2">
-              <button class="confirm-button">Confirm</button>
+              <button class="confirm-button" id="confirm-button">
+                Confirm
+              </button>
             </div>
             <div class="col-4">
-              <button class="current-button">Current City</button>
+              <button class="current-button" id="current-button">
+                Current City
+              </button>
             </div>
           </div>
           <!--Weather description-->
           <div class="main-weather-data">
             <ul>
-              <li class="main-city-name">New York, USA</li>
-              <li class="main-date">00:00, 01.01.2000</li>
-              <li class="main-description">Misty</li>
+              <li class="main-city-name">
+                <span id="main-city-name">Enter city name...</span>,
+                <span id="main-country">Country</span>
+              </li>
+              <li class="main-date" id="main-date-id">
+                Day | 01.01.2000, 00:00
+              </li>
+              <li class="main-description" id="main-des">Description</li>
             </ul>
           </div>
 
@@ -69,16 +82,19 @@
             <div class="col-4 main-weather-temp">
               <ul>
                 <li class="main-current-temp">
-                  20<sup><a href="#" class="cel">°C</a></sup> <sup>|</sup>
+                  <span id="main-current-temp">0</span
+                  ><sup><a href="#" class="cel">°C</a></sup> <sup>|</sup>
                   <sup><a href="#" class="far">°F</a></sup>
                 </li>
                 <li class="main-max-temp">
-                  Max temp: 20<sup><a href="#" class="cel">°C</a></sup>
+                  Max temp: <span id="main-max-temp">0</span
+                  ><sup><a href="#" class="cel">°C</a></sup>
                   <sup>|</sup>
                   <sup><a href="#" class="far">°F</a></sup>
                 </li>
                 <li class="main-min-temp">
-                  Min temp: 20<sup><a href="#" class="cel">°C</a></sup>
+                  Min temp: <span id="main-min-temp">0</span
+                  ><sup><a href="#" class="cel">°C</a></sup>
                   <sup>|</sup>
                   <sup><a href="#" class="far">°F</a></sup>
                 </li>
@@ -87,13 +103,14 @@
             <!--Other decsription-->
             <div class="col-6 other-description">
               <ul>
-                <li>Humidity: 0 %</li>
-                <li>Pressure: 0 hPa</li>
+                <li>Humidity: <span id="humidity">0</span> %</li>
+                <li>Pressure: <span id="pressure">0</span> hPa</li>
                 <li>
-                  Wind speed: 0 <a href="#" class="kmh">km/h</a> |
+                  Wind speed: <span id="wind-speed">0</span>
+                  <a href="#" class="kmh">km/h</a> |
                   <a href="#" class="mph">mph</a>
                 </li>
-                <li>Wind deg: 0°</li>
+                <li>Wind deg: <span id="wind-deg">0</span>°</li>
               </ul>
             </div>
           </div>
