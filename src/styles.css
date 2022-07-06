@@ -1,3 +1,20 @@
+:root {
+  /*Main colors*/
+  --001: #fffdef;
+  --002: #f1f1f1;
+  --003: #e70000;
+  --004: #c50000;
+  --005: #000;
+  --006: #fff;
+  --007: #a7bcb9;
+
+  /*Icon colors*/
+  --sun: #f1c232;
+  --cloud: #0048ba;
+  --rain: #733f83;
+  --mist: #a7bcb9;
+}
+
 /*General*/
 body {
   font-family: "Arima", cursive;
@@ -19,10 +36,11 @@ li {
 
 .app-border {
   padding: 25px;
-  border: 1px solid red;
+  border: 1px solid var(--003);
   border-radius: 10px;
   margin-top: 25px;
   margin-bottom: 2px;
+  background-color: var(--001);
 }
 
 .sorce-code-link {
@@ -59,17 +77,37 @@ li {
   font-size: 20px;
 }
 
+.title,
+.main-city-name,
+.main-current-temp {
+  color: var(--004);
+}
+
 /*Buttons*/
 .current-button {
   position: relative;
   left: 80px;
   width: 110px;
+  border-radius: 5px;
+  border: solid 1px var(--007);
 }
 
 .confirm-button {
   position: relative;
   left: 60px;
   width: 110px;
+  border-radius: 5px;
+  border: solid 1px var(--007);
+}
+
+button {
+  background-color: var(--002);
+}
+
+button:hover {
+  background-color: var(--003);
+  color: var(--006);
+  border: solid 1px var(--004);
 }
 
 /*Main*/
@@ -81,6 +119,7 @@ li {
   margin-left: 15px;
   padding-right: 0px;
   padding-left: 0px;
+  color: var(--mist);
 }
 
 .main-current-temp {
