@@ -1,7 +1,9 @@
 /*General*/
 body {
-  font-family: "Joan", serif;
+  font-family: "Arima", cursive;
   line-height: 25px;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 ul {
@@ -57,6 +59,19 @@ li {
   font-size: 20px;
 }
 
+/*Buttons*/
+.current-button {
+  position: relative;
+  left: 80px;
+  width: 110px;
+}
+
+.confirm-button {
+  position: relative;
+  left: 60px;
+  width: 110px;
+}
+
 /*Main*/
 
 .main-img {
@@ -86,4 +101,9 @@ li {
 .kmh,
 .mph {
   text-decoration: none;
+}
+
+.other-description {
+  position: relative;
+  left: 80px;
 }

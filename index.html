@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Joan&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Arima:wght@100;200;300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <!--Bootstrap-->
@@ -37,8 +37,8 @@
           <h1 class="title">Weather Check</h1>
           <!--City Form-->
           <div class="row">
-            <div class="col-3">
-              <form>
+            <div class="col-6">
+              <form class="city-form">
                 <input
                   type="text"
                   placeholder="Enter city name..."
@@ -46,11 +46,11 @@
                 />
               </form>
             </div>
-            <div class="col-1">
-              <button>Confirm</button>
-            </div>
             <div class="col-2">
-              <button>Current City</button>
+              <button class="confirm-button">Confirm</button>
+            </div>
+            <div class="col-4">
+              <button class="current-button">Current City</button>
             </div>
           </div>
           <!--Weather description-->
@@ -61,41 +61,44 @@
               <li class="main-description">Misty</li>
             </ul>
           </div>
-          <main>
-            <div class="row">
-              <div class="col-1 main-img">
-                <i class="fa-solid fa-smog"></i>
-              </div>
-              <div class="col-3 main-weather-temp">
-                <ul>
-                  <li class="main-current-temp">
-                    20<sup><a href="#" class="cel">°C</a></sup> |
-                    <sup><a href="#" class="far">°F</a></sup>
-                  </li>
-                  <li class="main-max-temp">
-                    Max temp: 20<sup><a href="#" class="cel">°C</a></sup> |
-                    <sup><a href="#" class="far">°F</a></sup>
-                  </li>
-                  <li class="main-min-temp">
-                    Min temp: 20<sup><a href="#" class="cel">°C</a></sup> |
-                    <sup><a href="#" class="far">°F</a></sup>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-4 other-description">
-                <ul>
-                  <li>Humidity: 0%</li>
-                  <li>Pressure: 0hPa</li>
-                  <li>
-                    Wind speed: 0<a href="#" class="kmh">km/h</a> |
-                    <a href="#" class="mph">mph</a>
-                  </li>
-                  <li>Wind deg: 0°</li>
-                </ul>
-              </div>
+
+          <div class="row main-weather-all">
+            <div class="col-1 main-img">
+              <i class="fa-solid fa-smog"></i>
             </div>
-          </main>
+            <div class="col-4 main-weather-temp">
+              <ul>
+                <li class="main-current-temp">
+                  20<sup><a href="#" class="cel">°C</a></sup> <sup>|</sup>
+                  <sup><a href="#" class="far">°F</a></sup>
+                </li>
+                <li class="main-max-temp">
+                  Max temp: 20<sup><a href="#" class="cel">°C</a></sup>
+                  <sup>|</sup>
+                  <sup><a href="#" class="far">°F</a></sup>
+                </li>
+                <li class="main-min-temp">
+                  Min temp: 20<sup><a href="#" class="cel">°C</a></sup>
+                  <sup>|</sup>
+                  <sup><a href="#" class="far">°F</a></sup>
+                </li>
+              </ul>
+            </div>
+            <!--Other decsription-->
+            <div class="col-6 other-description">
+              <ul>
+                <li>Humidity: 0 %</li>
+                <li>Pressure: 0 hPa</li>
+                <li>
+                  Wind speed: 0 <a href="#" class="kmh">km/h</a> |
+                  <a href="#" class="mph">mph</a>
+                </li>
+                <li>Wind deg: 0°</li>
+              </ul>
+            </div>
+          </div>
         </div>
+        <!--Open-sorce-code-->
         <footer class="sorce-code-link">
           <a
             class="link"
