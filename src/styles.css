@@ -161,3 +161,39 @@ button:hover {
   position: relative;
   left: 25px;
 }
+
+.main-current-temp .active {
+  color: var(--004);
+  cursor: default;
+}
+
+.main-max-temp .active {
+  color: var(--005);
+  cursor: default;
+}
+
+.main-min-temp .active {
+  color: var(--005);
+  cursor: default;
+}
+
+.other-description .active {
+  color: var(--005);
+  cursor: default;
+}
+
+.main-current-temp .active:hover {
+  text-decoration: none;
+}
+
+.main-max-temp .active:hover {
+  text-decoration: none;
+}
+
+.main-min-temp .active:hover {
+  text-decoration: none;
+}
+
+.other-description .active:hover {
+  text-decoration: none;
+}

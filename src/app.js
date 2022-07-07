@@ -44,13 +44,24 @@ mainDate.innerHTML = `<strong>${day}</strong> | ${date}.${month}.${year}, ${hour
 //API, City input,button Confirm
 function showTemp(response) {
   console.log(response);
-  let tempD = Math.round(response.data.main.temp);
-  let tempMin = Math.round(response.data.main.temp_min);
-  let tempMax = Math.round(response.data.main.temp_max);
-  let windSpeed = Math.round(response.data.wind.speed);
+
   let windDeg = Math.round(response.data.wind.deg);
+
+  kmSpeed = response.data.wind.speed; // null global function from unit converter
+  let windSpeed = Math.round(kmSpeed);
+
   let humidity = Math.round(response.data.main.humidity);
   let pressure = Math.round(response.data.main.pressure);
+
+  celTemp = response.data.main.temp; // null global function from unit converter
+  let tempD = Math.round(celTemp);
+
+  celMaxTemp = response.data.main.temp_max; // null global function from unit converter
+  let tempMax = Math.round(celMaxTemp);
+
+  celMinTemp = response.data.main.temp_min; // null global function from unit converter
+  let tempMin = Math.round(celMinTemp);
+
   let country = response.data.sys.country;
   let mainCity = response.data.name;
   let des = response.data.weather[0].description;
@@ -108,13 +119,23 @@ function retrivePosition(position) {
 }
 
 function showCurrentTemp(response) {
-  let tempD = Math.round(response.data.main.temp);
-  let tempMin = Math.round(response.data.main.temp_min);
-  let tempMax = Math.round(response.data.main.temp_max);
-  let windSpeed = Math.round(response.data.wind.speed);
   let windDeg = Math.round(response.data.wind.deg);
+
+  kmSpeed = response.data.wind.speed; // null global function from unit converter
+  let windSpeed = Math.round(kmSpeed);
+
   let humidity = Math.round(response.data.main.humidity);
   let pressure = Math.round(response.data.main.pressure);
+
+  celTemp = response.data.main.temp; // null global function from unit converter
+  let tempD = Math.round(celTemp);
+
+  celMaxTemp = response.data.main.temp_max; // null global function from unit converter
+  let tempMax = Math.round(celMaxTemp);
+
+  celMinTemp = response.data.main.temp_min; // null global function from unit converter
+  let tempMin = Math.round(celMinTemp);
+
   let country = response.data.sys.country;
   let mainCity = response.data.name;
   let des = response.data.weather[0].description;
@@ -146,3 +167,132 @@ function getCurrentPosition() {
 
 let button = document.querySelector("#current-button");
 button.addEventListener("click", getCurrentPosition);
+
+//Unit converter
+//°C to °F
+function convertFar(event) {
+  event.preventDefault();
+  let tempCel = document.querySelector("#main-current-temp");
+  //romove nad add active to link (color and link change)
+  celConvertLink.classList.remove("active");
+  farConvertLink.classList.add("active");
+
+  let tempFar = (celTemp * 9) / 5 + 32;
+  tempCel.innerHTML = Math.round(tempFar);
+}
+
+//°F to °C
+function convertCel(event) {
+  event.preventDefault();
+  let tempCel = document.querySelector("#main-current-temp");
+  //romove nad add active to link (color and link change)
+  celConvertLink.classList.add("active");
+  farConvertLink.classList.remove("active");
+
+  tempCel.innerHTML = Math.round(celTemp);
+}
+
+//Max C to F
+function convertFarMax(event) {
+  event.preventDefault();
+  let tempMaxCel = document.querySelector("#main-max-temp");
+  celConvertLinkMax.classList.remove("active");
+  farConvertLinkMax.classList.add("active");
+
+  let tempMaxFar = (celMaxTemp * 9) / 5 + 32;
+  tempMaxCel.innerHTML = Math.round(tempMaxFar);
+}
+//Max F to C
+function convertCelMax(event) {
+  event.preventDefault();
+  let tempMaxCel = document.querySelector("#main-max-temp");
+  //romove nad add active to link (color and link change)
+  celConvertLinkMax.classList.add("active");
+  farConvertLinkMax.classList.remove("active");
+
+  tempMaxCel.innerHTML = Math.round(celMaxTemp);
+}
+
+//Min C to F
+function convertFarMin(event) {
+  event.preventDefault();
+  let tempMinCel = document.querySelector("#main-min-temp");
+  celConvertLinkMin.classList.remove("active");
+  farConvertLinkMin.classList.add("active");
+
+  let tempMinFar = (celMinTemp * 9) / 5 + 32;
+  tempMinCel.innerHTML = Math.round(tempMinFar);
+}
+
+//Min F to C
+function convertCelMin(event) {
+  event.preventDefault();
+  let tempMinCel = document.querySelector("#main-min-temp");
+  celConvertLinkMin.classList.add("active");
+  farConvertLinkMin.classList.remove("active");
+
+  tempMinCel.innerHTML = Math.round(celMinTemp);
+}
+
+//km/h to mph
+function convertMile(event) {
+  event.preventDefault();
+  let kmWindSpeed = document.querySelector("#wind-speed");
+
+  //romove nad add active to link (color and link change)
+  kmConvertLink.classList.remove("active");
+  mileConvertLink.classList.add("active");
+
+  let mileWindSpeed = kmSpeed / 1.609344;
+  kmWindSpeed.innerHTML = Math.round(mileWindSpeed);
+}
+
+//mph to km/h
+function convertKm(event) {
+  event.preventDefault();
+  let mileWindSpeed = document.querySelector("#wind-speed");
+
+  //romove nad add active to link (color and link change)
+  kmConvertLink.classList.add("active");
+  mileConvertLink.classList.remove("active");
+
+  mileWindSpeed.innerHTML = Math.round(kmSpeed);
+}
+
+//Funlcje null - pod functon search(event)
+let celTemp = null;
+let celMaxTemp = null;
+let celMinTemp = null;
+let kmSpeed = null;
+
+//°C to °F
+let farConvertLink = document.querySelector("#far-link");
+farConvertLink.addEventListener("click", convertFar);
+
+//Max
+let farConvertLinkMax = document.querySelector("#far-link-max");
+farConvertLinkMax.addEventListener("click", convertFarMax);
+
+//Min
+let farConvertLinkMin = document.querySelector("#far-link-min");
+farConvertLinkMin.addEventListener("click", convertFarMin);
+
+//°F to °C
+let celConvertLink = document.querySelector("#cel-link");
+celConvertLink.addEventListener("click", convertCel);
+
+//Max
+let celConvertLinkMax = document.querySelector("#cel-link-max");
+celConvertLinkMax.addEventListener("click", convertCelMax);
+
+//Min
+let celConvertLinkMin = document.querySelector("#cel-link-min");
+celConvertLinkMin.addEventListener("click", convertCelMin);
+
+//km/h to mph
+let mileConvertLink = document.querySelector("#m-link");
+mileConvertLink.addEventListener("click", convertMile);
+
+//mph to km/h
+let kmConvertLink = document.querySelector("#km-link");
+kmConvertLink.addEventListener("click", convertKm);
