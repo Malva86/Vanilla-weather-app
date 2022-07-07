@@ -53,7 +53,7 @@ function showTemp(response) {
   let pressure = Math.round(response.data.main.pressure);
   let country = response.data.sys.country;
   let mainCity = response.data.name;
-  let des = response.data.weather[0].main;
+  let des = response.data.weather[0].description;
   let desM = document.querySelector("#main-des");
   let countryMain = document.querySelector("#main-country");
   let dayTemp = document.querySelector("#main-current-temp");
@@ -64,6 +64,7 @@ function showTemp(response) {
   let humi = document.querySelector("#humidity");
   let press = document.querySelector("#pressure");
   let mainCityName = document.querySelector("#main-city-name");
+  let iconEle = document.querySelector("#main-icon");
   desM.innerHTML = `${des}`;
   countryMain.innerHTML = `${country}`;
   mainCityName.innerHTML = `${mainCity}`;
@@ -74,6 +75,10 @@ function showTemp(response) {
   windD.innerHTML = `${windDeg}`;
   humi.innerHTML = `${humidity}`;
   press.innerHTML = `${pressure}`;
+  iconEle.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function search(event) {
@@ -110,7 +115,7 @@ function showCurrentTemp(response) {
   let pressure = Math.round(response.data.main.pressure);
   let country = response.data.sys.country;
   let mainCity = response.data.name;
-  let des = response.data.weather[0].main;
+  let des = response.data.weather[0].description;
   let desM = document.querySelector("#main-des");
   let countryMain = document.querySelector("#main-country");
   let dayTemp = document.querySelector("#main-current-temp");

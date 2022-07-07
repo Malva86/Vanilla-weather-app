@@ -34,6 +34,10 @@ li {
   margin: 0;
 }
 
+li::first-letter {
+  text-transform: capitalize;
+}
+
 .app-border {
   padding: 25px;
   border: 1px solid var(--003);
@@ -115,14 +119,9 @@ button:hover {
 /*Main*/
 
 .main-img {
-  font-size: 50px;
-  margin-top: 15px;
-  padding-right: 0px;
-  padding-left: 0px;
-  color: var(--mist);
   position: relative;
   top: 15px;
-  left: 25px;
+  right: 10px;
 }
 
 .main-current-temp,
