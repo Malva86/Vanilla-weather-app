@@ -64,7 +64,6 @@ function showTemp(response) {
   let humi = document.querySelector("#humidity");
   let press = document.querySelector("#pressure");
   let mainCityName = document.querySelector("#main-city-name");
-  let iconEle = document.querySelector("#main-icon");
   desM.innerHTML = `${des}`;
   countryMain.innerHTML = `${country}`;
   mainCityName.innerHTML = `${mainCity}`;
@@ -75,6 +74,9 @@ function showTemp(response) {
   windD.innerHTML = `${windDeg}`;
   humi.innerHTML = `${humidity}`;
   press.innerHTML = `${pressure}`;
+
+  /*Icon change*/
+  let iconEle = document.querySelector("#main-icon");
   iconEle.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`

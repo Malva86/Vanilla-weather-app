@@ -39,25 +39,26 @@
           <h1 class="title">Weather Check</h1>
           <!--City Form-->
           <div class="row align-items-center">
-            <div class="col">
+            <div class="col-8">
               <form class="city-form">
                 <input
                   type="text"
                   placeholder="Enter city name..."
                   autofocus="on"
+                  class="form-control"
                   id="input-form"
                 />
               </form>
             </div>
             <!--Buttons-->
-            <div class="col">
+            <div class="col-2">
               <button class="confirm-button" id="confirm-button">
-                Confirm
+                <i class="fa-solid fa-building-circle-check confirm-icon"></i>
               </button>
             </div>
-            <div class="col">
+            <div class="col-2">
               <button class="current-button" id="current-button">
-                Current City
+                <i class="fa-solid fa-thumbtack current-icon"></i>
               </button>
             </div>
           </div>
@@ -76,14 +77,14 @@
           </div>
 
           <div class="row main-weather-all">
-            <div class="col main-img">
+            <div class="col-2 main-img">
               <img
                 id="main-icon"
                 src="http://openweathermap.org/img/wn/10d@2x.png"
                 alt="icon"
               />
             </div>
-            <div class="col main-weather-temp">
+            <div class="col-4 main-weather-temp">
               <ul>
                 <li class="main-current-temp">
                   <span id="main-current-temp">0</span
@@ -105,7 +106,7 @@
               </ul>
             </div>
             <!--Other decsription-->
-            <div class="col other-description">
+            <div class="col-6 other-description">
               <ul>
                 <li>Humidity: <span id="humidity">0</span> %</li>
                 <li>Pressure: <span id="pressure">0</span> hPa</li>

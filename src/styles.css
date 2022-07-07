@@ -21,6 +21,8 @@ body {
   line-height: 25px;
   max-width: 700px;
   margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 ul {
@@ -90,20 +92,24 @@ li::first-letter {
 }
 
 /*Buttons*/
-.current-button {
+.confirm-button {
   position: relative;
-  left: 0px;
-  width: 110px;
+  left: 30px;
   border-radius: 5px;
   border: solid 1px var(--007);
 }
 
-.confirm-button {
+.current-button {
   position: relative;
-  left: 60px;
-  width: 110px;
+  right: 15px;
   border-radius: 5px;
   border: solid 1px var(--007);
+}
+
+.current-button,
+.confirm-button {
+  width: 50px;
+  height: 45px;
 }
 
 button {
@@ -117,10 +123,9 @@ button:hover {
 }
 
 /*Main*/
-
 .main-img {
   position: relative;
-  top: 15px;
+  top: 5px;
   right: 10px;
 }
 
@@ -128,7 +133,7 @@ button:hover {
 .main-max-temp,
 .main-min-temp {
   position: relative;
-  right: 100px;
+  right: 5px;
   top: 15px;
 }
 
@@ -154,5 +159,5 @@ button:hover {
 
 .other-description {
   position: relative;
-  right: 70px;
+  left: 25px;
 }
