@@ -17,6 +17,12 @@
 
 /*General*/
 body {
+  background-image: url("../img/fantasy.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.app-border-link {
   font-family: "Arima", cursive;
   line-height: 25px;
   max-width: 700px;
@@ -42,19 +48,21 @@ li::first-letter {
 
 .app-border {
   padding: 25px;
+  padding-bottom: 0;
   border: 1px solid var(--003);
   border-radius: 10px;
-  margin-top: 25px;
+  margin-top: 50px;
   margin-bottom: 2px;
-  background-color: var(--001);
+  background-color: rgba(255, 253, 239, 0.6);
   color: var(--005);
   font-weight: 500;
 }
 
 .sorce-code-link {
-  margin-left: 10px;
   font-size: 12px;
   color: var(--004);
+  text-align: center;
+  margin-top: 25px;
 }
 
 .link {
@@ -101,7 +109,7 @@ li::first-letter {
 
 .current-button {
   position: relative;
-  right: 15px;
+  right: 10px;
   border-radius: 5px;
   border: solid 1px var(--007);
 }
