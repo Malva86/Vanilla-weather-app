@@ -41,6 +41,38 @@ let months = [
 let month = months[now.getMonth()];
 mainDate.innerHTML = `<strong>${day}</strong> | ${date}.${month}.${year}, ${hours}:${minutes}`;
 
+//Wheater form temperature template
+
+function displayForecast() {
+  let forecastEle = document.querySelector("#weather-form-forecast");
+
+  let forecastHTML = `<div class="row">`; //String for (forecastHTML +) and div for row
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2 weather-form-border">
+    <div class="weather-form-day">
+      <strong>${day}</strong>
+    </div>
+    <img
+      src="http://openweathermap.org/img/wn/10d@2x.png"
+      alt="icon"
+      class="weather-form-icon"
+    />
+    <div class="wether-form-temp">
+      <span class="weather-form-temp-max">18</span>° |
+      <span class="weather-form-temp-min">15</span>°
+    </div>
+    <div>
+      <span class="max-and-min">max | min</span>
+    </div>
+  </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`; //End of row
+  forecastEle.innerHTML = forecastHTML;
+}
+
 //API, City input,button Confirm
 function showTemp(response) {
   console.log(response);
@@ -296,3 +328,6 @@ mileConvertLink.addEventListener("click", convertMile);
 //mph to km/h
 let kmConvertLink = document.querySelector("#km-link");
 kmConvertLink.addEventListener("click", convertKm);
+
+//Weather form forecast tameplate
+displayForecast();
