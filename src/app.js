@@ -41,11 +41,11 @@ let months = [
 let month = months[now.getMonth()];
 mainDate.innerHTML = `<strong>${day}</strong> | ${date}.${month}.${year}, ${hours}:${minutes}`;
 
-//Wheater form temperature template
-
-function displayForecast() {
+//Wheater forecast form temperature template
+function displayForecast(response) {
+  //response for API
+  console.log(response.data);
   let forecastEle = document.querySelector("#weather-form-forecast");
-
   let forecastHTML = `<div class="row">`; //String for (forecastHTML +) and div for row
   let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   days.forEach(function (day) {
@@ -71,12 +71,18 @@ function displayForecast() {
   });
   forecastHTML = forecastHTML + `</div>`; //End of row
   forecastEle.innerHTML = forecastHTML;
+} //displayForecast(); at API
+
+//API forecast form - lon and lat
+function getForecast(coord) {
+  let apiKey = "f4694dab77f16eded26a08442f7ba9ab";
+  let apiUrlF = `https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&appid=${apiKey}
+  &units=metric`;
+  axios.get(apiUrlF).then(displayForecast);
 }
 
 //API, City input,button Confirm
 function showTemp(response) {
-  console.log(response);
-
   let windDeg = Math.round(response.data.wind.deg);
 
   kmSpeed = response.data.wind.speed; // null global function from unit converter
@@ -124,6 +130,9 @@ function showTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  //Weather forecast form API
+  getForecast(response.data.coord);
 }
 
 function search(event) {
@@ -140,7 +149,6 @@ buttonConnfirm.addEventListener("click", search);
 
 //Geolocation
 function retrivePosition(position) {
-  console.log(position);
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
   let apiKey = "f4694dab77f16eded26a08442f7ba9ab";
@@ -291,7 +299,7 @@ function convertKm(event) {
   mileWindSpeed.innerHTML = Math.round(kmSpeed);
 }
 
-//Funlcje null - pod functon search(event)
+//Function null - pod function search(event)
 let celTemp = null;
 let celMaxTemp = null;
 let celMinTemp = null;
@@ -329,5 +337,42 @@ mileConvertLink.addEventListener("click", convertMile);
 let kmConvertLink = document.querySelector("#km-link");
 kmConvertLink.addEventListener("click", convertKm);
 
-//Weather form forecast tameplate
-displayForecast();
+//Wheater forecast form temperature template
+function displayForecast(response) {
+  //response for API
+  console.log(response.data);
+  let forecastEle = document.querySelector("#weather-form-forecast");
+  let forecastHTML = `<div class="row">`; //String for (forecastHTML +) and div for row
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2 weather-form-border">
+    <div class="weather-form-day">
+      <strong>${day}</strong>
+    </div>
+    <img
+      src="http://openweathermap.org/img/wn/10d@2x.png"
+      alt="icon"
+      class="weather-form-icon"
+    />
+    <div class="wether-form-temp">
+      <span class="weather-form-temp-max">18</span>° |
+      <span class="weather-form-temp-min">15</span>°
+    </div>
+    <div>
+      <span class="max-and-min">max | min</span>
+    </div>
+  </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`; //End of row
+  forecastEle.innerHTML = forecastHTML;
+} //displayForecast(); at API
+
+//API forecast form - lon and lat
+function getForecast(coord) {
+  let apiKey = "f4694dab77f16eded26a08442f7ba9ab";
+  let apiUrlF = `https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&appid=${apiKey}
+  &units=metric`;
+  axios.get(apiUrlF).then(displayForecast);
+}
