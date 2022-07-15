@@ -45,7 +45,7 @@ mainDate.innerHTML = `<strong>${day}</strong> | ${date}.${month}.${year}, ${hour
 function displayForecastFormTemplate(response) {
   //response for API
 
-  //console.log(response.data);
+  //console.log(response.data.daily);
   let forecastEle = document.querySelector("#weather-form-forecast");
   let forecastHTML = `<div class="row">`; //String for (forecastHTML +) and div for row
   let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -76,12 +76,11 @@ function displayForecastFormTemplate(response) {
 
 //API forecast form - lon and lat
 
-//function getForecastFormTemplate(coord) {
-//let apiKey = "f4694dab77f16eded26a08442f7ba9ab";
-// let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&appid=${apiKey}
-//&units=metric`;
-// axios.get(apiUrl).then(displayForecastFormTemplate);
-//}
+function getForecastFormTemplate(coordinates) {
+  let apiKey = "f4694dab77f16eded26a08442f7ba9ab";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecastFormTemplate);
+}
 
 //API, City input,button Confirm
 function showTemp(response) {
@@ -132,9 +131,6 @@ function showTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-
-  //Weather forecast form API
-  //getForecastFormTemplate(response.data.coord);
 }
 
 function search(event) {
@@ -201,6 +197,9 @@ function showCurrentTemp(response) {
   windD.innerHTML = `${windDeg}`;
   humi.innerHTML = `${humidity}`;
   press.innerHTML = `${pressure}`;
+
+  //Weather forecast form API
+  getForecastFormTemplate(response.data.coord);
 }
 
 function getCurrentPosition() {
@@ -338,6 +337,3 @@ mileConvertLink.addEventListener("click", convertMile);
 //mph to km/h
 let kmConvertLink = document.querySelector("#km-link");
 kmConvertLink.addEventListener("click", convertKm);
-
-//Rorecast Form Template
-displayForecastFormTemplate();
