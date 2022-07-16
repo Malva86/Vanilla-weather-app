@@ -41,34 +41,52 @@ let months = [
 let month = months[now.getMonth()];
 mainDate.innerHTML = `<strong>${day}</strong> | ${date}.${month}.${year}, ${hours}:${minutes}`;
 
+//Function for forecastDay.dt
+function formatForecastDay(timestamp) {
+  let dateForecast = new Date(timestamp * 1000);
+  let dayForecast = dateForecast.getDay();
+  let daysForecast = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return daysForecast[dayForecast];
+}
+
 //Wheater forecast form temperature template
 function displayForecastFormTemplate(response) {
   //response for API
+  let forecastForm = response.data.daily;
 
-  //console.log(response.data.daily);
   let forecastEle = document.querySelector("#weather-form-forecast");
   let forecastHTML = `<div class="row">`; //String for (forecastHTML +) and div for row
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2 weather-form-border">
+  //let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  forecastForm.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      //change days by forecasForm
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2 weather-form-border">
     <div class="weather-form-day">
-      <strong>${day}</strong>
+      <strong>${formatForecastDay(forecastDay.dt)}</strong>
     </div>
     <img
-      src="http://openweathermap.org/img/wn/10d@2x.png"
+      src="http://openweathermap.org/img/wn/${
+        forecastDay.weather[0].icon
+      }@2x.png"
       alt="icon"
       class="weather-form-icon"
     />
     <div class="wether-form-temp">
-      <span class="weather-form-temp-max">18</span>° |
-      <span class="weather-form-temp-min">15</span>°
+      <span class="weather-form-temp-max">${Math.round(
+        forecastDay.temp.max
+      )}</span>° |
+      <span class="weather-form-temp-min">${Math.round(
+        forecastDay.temp.min
+      )}</span>°
     </div>
     <div>
       <span class="max-and-min">max | min</span>
     </div>
   </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`; //End of row
   forecastEle.innerHTML = forecastHTML;
