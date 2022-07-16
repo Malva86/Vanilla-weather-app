@@ -149,7 +149,11 @@ function showTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  getForecastFormTemplate(response.data.coord);
 }
+
+//City search engine
 
 function search(event) {
   event.preventDefault();

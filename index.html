@@ -35,18 +35,17 @@
     <div class="container">
       <div class="app-border-link">
         <div class="app-border">
-          <!--Title-->
-          <h1 class="title">Weather Check</h1>
           <!--City Form-->
           <div class="row align-items-center">
             <div class="col-8">
-              <form class="city-form">
+              <form class="city-form" id="city-form-enter">
                 <input
                   type="text"
                   placeholder="Enter city name..."
                   autofocus="on"
                   class="form-control"
                   id="input-form"
+                  autocomplete="off"
                 />
               </form>
             </div>
@@ -66,7 +65,7 @@
           <div class="main-weather-data">
             <ul>
               <li class="main-city-name">
-                <span id="main-city-name">Enter city name...</span>,
+                <span id="main-city-name">Enter city for 7 days weather...</span>,
                 <span id="main-country">Country</span>
               </li>
               <li class="main-date" id="main-date-id">
@@ -131,7 +130,7 @@
             </div>
             <!--Weather days form days will be repeat in JS-->
             <div class="weather-form" id="weather-form-forecast"> <!--HTML codr in JS-->
-          </div>
+            </div>
           <!--Open-sorce-code-->
           <footer class="sorce-code-link">
             <a
