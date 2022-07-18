@@ -155,17 +155,37 @@ function showTemp(response) {
 
 //City search engine
 
-function search(event) {
-  event.preventDefault();
-  let city = document.querySelector("#input-form").value;
+//Old function without auto-serch
+//function search(event) {
+// event.preventDefault();
+//let city = document.querySelector("#input-form").value;
+//let apiKey = "f4694dab77f16eded26a08442f7ba9ab";
+// let unit = "metric";
+// let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+//axios.get(apiUrl).then(showTemp);
+//}
+
+//let buttonConnfirm = document.querySelector("#confirm-button");
+//buttonConnfirm.addEventListener("click", search);
+
+//New function of city search witch auto serch
+function search(city) {
   let apiKey = "f4694dab77f16eded26a08442f7ba9ab";
   let unit = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(showTemp);
 }
 
-let buttonConnfirm = document.querySelector("#confirm-button");
-buttonConnfirm.addEventListener("click", search);
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#input-form");
+  search(city.value);
+}
+
+search("Warsaw");
+
+let buttonConnfirm = document.querySelector("#city-form-enter");
+buttonConnfirm.addEventListener("submit", handleSubmit);
 
 //Geolocation
 function retrivePosition(position) {
@@ -224,7 +244,8 @@ function showCurrentTemp(response) {
   getForecastFormTemplate(response.data.coord);
 }
 
-function getCurrentPosition() {
+function getCurrentPosition(event) {
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(retrivePosition);
 }
 
